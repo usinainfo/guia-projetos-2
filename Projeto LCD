@@ -1,0 +1,19 @@
+/*===========================================================================
+
+Código: www.flaviobabos.com.br – parceiro da Usina Info
+
+Projeto monitoramento de temperatura e umidade do ambiente com Arduino Uno e DHT11
+
+=============================================================================*/
+
+#include <LiquidCrystal.h>
+
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+
+void setup() {
+  lcd.begin(16, 2);
+  lcd.print("Olá, mundo!");
+}
+
+void loop() {
+}
