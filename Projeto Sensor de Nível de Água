@@ -1,0 +1,26 @@
+/*===========================================================================
+
+Código: www.flaviobabos.com.br – parceiro da Usina Info
+
+Projeto monitoramento de temperatura e umidade do ambiente com Arduino Uno e DHT11
+
+=============================================================================*/
+
+const int pinoLED = 12; // Pino digital utilizado pelo LED
+               
+void setup(){
+  //Serial.begin(9600); // Inicialização da Serial 
+   pinMode(pinoSensor, INPUT); // Define o pino como entrada
+   pinMode(pinoLED, OUTPUT); // Define o pino como saída 
+}
+ 
+void loop(){
+  if(analogRead(pinoSensor) > 690){ // Se a leitura do pino for maior que 690
+                                    // bits (pode ser ajustado)
+      digitalWrite(pinoLED, HIGH); // Acende o LED
+
+  }else{ //Senão
+    digitalWrite(pinoLED, LOW); //Apaga o LED
+  }
+ } 
+
