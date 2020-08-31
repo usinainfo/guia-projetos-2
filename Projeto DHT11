@@ -1,0 +1,30 @@
+
+#include <dht.h> // Inclua a biblioteca do componente
+
+#define pinodht 8 // Define o número do pino no qual o sensor está conectado
+
+dht DHT; // Cria um objeto DHT
+
+void setup() {
+
+  Serial.begin(9600); // Inicializa comunicação Serial  
+}
+
+void loop() {
+
+  int readata = DHT.read22(pinodht); // Lê os dados do sensor
+
+  float t = DHT.temperature;   // Obtêm os valores de temperatura 
+  
+  float u = DHT.humidity;  // Obtêm os valores de umidade 
+  
+  // Printando os resultados no Monitor Serial
+  Serial.print("Temperatura = ");
+  Serial.print(t);
+  Serial.print(" *C ");
+  Serial.print("    Umidade = ");
+  Serial.print(u);
+  Serial.println(" % ");
+  
+  delay(2000);  // Delay de 2 segundos, como a taxa de amostragem DHT22 é de 0,5 Hz
+}
