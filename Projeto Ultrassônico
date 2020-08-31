@@ -1,0 +1,68 @@
+/*===========================================================================
+
+Código: www.flaviobabos.com.br – parceiro da Usina Info
+
+Projeto acionamento de LED através da detecção de movimento pelo sensor de 
+distância Ultrassônico
+
+=============================================================================*/
+
+int trigPin = 7;  // Defina os pinos com os quais você trabalhará 
+int echoPin = 8;
+int LEDR = 10;
+int LEDV = 11;
+float velocidade = 0.0343;  // Velocidade do som em cm / us 
+long duracao, distancia;
+
+void setup ()
+{
+   pinMode (trigPin, OUTPUT);  // Defina o pino digital 7 como uma saída
+
+   pinMode (echoPin, INPUT);   // Defina o pino digital 8 como uma entrada
+
+   pinMode (LEDR, OUTPUT);   // Defina o pino digital 10 como uma saída
+
+   pinMode (LEDV, OUTPUT);   // Defina o pino digital 11 como uma saída
+
+   digitalWrite (LEDR, LOW);  // Defina o pino digital 10 em um status LOW
+
+   digitalWrite (LEDV, LOW); // Defina o pino digital 11 em um status LOW
+}
+void loop ()
+ {   
+   digitalWrite (trigPin, LOW);        // Certifique-se de que o TRIG está 
+                                       // desativado
+
+   delayMicroseconds (2);              // Certifique-se de que o TRIG está  
+                                         // em LOW
+ 
+   digitalWrite (trigPin, HIGH);       // Ativa o pulso de saída 
+   delayMicroseconds (10);             // Aguarde 10µs, o pulso permanece 
+                                       // ativo durante este tempo
+
+   digitalWrite (trigPin, LOW);        // Pare o PULSE e espere pelo ECHO
+
+   duracao = pulseIn (echoPin, HIGH); // pulseIn mede o tempo desde que o 
+                                      // pino definido (echoPin) muda seu 
+                                      // status de LOW para HIGH (de 0 a 1)
+
+   distancia = velocidade * duracao / 2;   // Divida por 2 porque queremos 
+                                           // ter apenas o tempo de “ir”, não
+                                          // o tempo de “ir e voltar e divida
+                                         // por 29,1 porque 1 é dividido pela 
+                                         // velocidade do som (1/SpeedSound)                     
+                                         // em cm / us
+
+   if (distancia <20) {
+       digitalWrite (LEDR, HIGH);     // Se o sensor detectar distâncias  
+                                     // inferiores a 20 cm, o LED vermelho 
+                                     // acende
+
+       digitalWrite (LEDV, LOW);      // e desliga o LED verde
+
+   }
+   else {        // caso contrário 
+       digitalWrite (LEDR, LOW);    // desliga o LED vermelho 
+       digitalWrite (LEDV, HIGH);   // liga o LED verde
+       }
+ }
