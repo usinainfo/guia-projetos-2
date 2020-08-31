@@ -1,0 +1,25 @@
+/*===========================================================================
+
+Código: www.flaviobabos.com.br – parceiro da Usina Info
+
+Projeto acionamento de LED através da detecção de movimento pelo sensor de 
+distância Ultrassônico
+
+=============================================================================*/
+
+int rele = 6;
+
+void setup() {
+	// define o rele como um pino OUTPUT
+	pinMode(rele, OUTPUT);
+}
+
+void loop() {
+	// vamos colocar o rele pra funcionar
+	digitalWrite(rele, LOW);
+	delay(3000);
+	
+	// agora, desligando o rele
+	digitalWrite(rele, HIGH);
+	delay(3000);
+}
