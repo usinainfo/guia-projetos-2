@@ -1,7 +1,6 @@
 /*===========================================================================
 Código: Flavio Babos – Parceiro Usina Info
-Projeto acionamento de LED através da detecção de movimento pelo sensor de 
-distância Ultrassônico
+Projeto Relé - Controle de dispositivos de alta tensão
 =============================================================================*/
 
 int rele = 6;
