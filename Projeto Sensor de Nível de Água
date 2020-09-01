@@ -1,9 +1,6 @@
 /*===========================================================================
-
-Código: www.flaviobabos.com.br – parceiro da Usina Info
-
+Código: Flavio Babos – Parceiro Usina Info
 Projeto monitoramento de temperatura e umidade do ambiente com Arduino Uno e DHT11
-
 =============================================================================*/
 
 const int pinoLED = 12; // Pino digital utilizado pelo LED
