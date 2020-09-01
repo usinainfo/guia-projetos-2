@@ -1,6 +1,6 @@
 /*===========================================================================
 Código: Flavio Babos – Parceiro Usina Info
-Projeto monitoramento de temperatura e umidade do ambiente com Arduino Uno e DHT11
+Projeto Sensor de nível de água com LED indicador
 =============================================================================*/
 
 const int pinoLED = 12; // Pino digital utilizado pelo LED
