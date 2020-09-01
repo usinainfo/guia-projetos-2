@@ -1,6 +1,6 @@
 /*===========================================================================
 Código: Flavio Babos – Parceiro Usina Info
-Projeto monitoramento de temperatura e umidade do ambiente com Arduino Uno e DHT11
+Projeto LCD - Guia definitivo de uso
 =============================================================================*/
 
 #include <LiquidCrystal.h>
