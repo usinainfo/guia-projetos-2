@@ -1,10 +1,7 @@
 /*===========================================================================
-
-Código: www.flaviobabos.com.br – parceiro da Usina Info
-
+Código: Flavio Babos – Parceiro Usina Info
 Projeto acionamento de LED através da detecção de movimento pelo sensor de 
 distância Ultrassônico
-
 =============================================================================*/
 
 int trigPin = 7;  // Defina os pinos com os quais você trabalhará 
