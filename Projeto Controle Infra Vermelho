@@ -62,15 +62,13 @@ void loop() {
         
     }else{
       if((results.value == codTecla2) && (stLedVerde == 1)){ 
-
             digitalWrite(ledVerde, LOW); 
             stLedVerde = 0;
       }
     }
  
     if((results.value == codTecla3) && (stLedAzul == 0)){ 
- 
-        digitalWrite(ledAzul, HIGH); 
+         digitalWrite(ledAzul, HIGH); 
         stLedAzul = 1; 
         
     }else{
