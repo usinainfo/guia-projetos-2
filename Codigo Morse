@@ -1,3 +1,8 @@
+/*===========================================================================
+Código: Flavio Babos – Parceiro Usina Info
+Projeto Código Morse com uso de um Botão, um LED e um Buzzer
+=============================================================================*/
+
 // Declare as variáveis utilizadas e as portas de cada componente
 int buzzerPin = 9; 
 int botaoPin = 7;
