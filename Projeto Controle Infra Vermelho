@@ -1,3 +1,8 @@
+/*===========================================================================
+Código: Flavio Babos – Parceiro Usina Info
+Projeto Controle Infra Vermelho e receptor KY-022
+=============================================================================*/
+
 #include <IRremote.h>
 
 // Pino digital utilizado pelo fotorreceptor ky-022
