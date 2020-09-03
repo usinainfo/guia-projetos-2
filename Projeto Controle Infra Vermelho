@@ -1,0 +1,80 @@
+#include <IRremote.h>
+
+// Pino digital utilizado pelo fotorreceptor ky-022
+int RECV_PIN = 7;         
+
+// Passa o parâmetro para a função irrecv
+IRrecv irrecv(RECV_PIN);    
+
+// Pinos digitais utilizados pelos leds
+const int ledVermelho = 8;
+const int ledVerde = 9;    
+const int ledAzul = 10;    
+ 
+long int codTecla1 = 16738455; // Código da tecla 1 (altere para o código decimal que você capturou)
+long int codTecla2 = 16750695; // Código da tecla 2 (altere para o código decimal que você capturou)
+long int codTecla3 = 16756815; // Código da tecla 3 (altere para o código decimal que você capturou)
+
+// Variáveis que controlam os estados dos led (ligado / desligado)
+int stLedVermelho = 0;  
+int stLedVerde = 0;     
+int stLedAzul = 0;      
+
+// Variável que armazena os resultados (sinal IR recebido)
+decode_results results; 
+ 
+void setup(){
+
+  // Inicializa a recepção de sinais IR
+  irrecv.enableIRIn();         
+
+  // Define os pinos como saída
+  pinMode(ledVermelho, OUTPUT);   
+  pinMode(ledVerde, OUTPUT);     
+  pinMode(ledAzul, OUTPUT);    
+}
+ 
+void loop() {
+  
+  // Captura o sinal IR
+  if (irrecv.decode(&results)) {
+    if((results.value == codTecla1) && (stLedVermelho == 0)){ // Se o código ir capturado for igual a codtecla1 e a
+    // Variável stLedVermelho for igual a 0, 
+        digitalWrite(ledVermelho, HIGH); // Liga o LED vermelho
+        stLedVermelho = 1; // Variável recebe valor 1
+        
+    }else{ // Senão for
+      if((results.value == codTecla1) && (stLedVermelho == 1)){ /// Se o código IR capturado for igual a codTecla1 e a
+    // Variável stLedVermelho for igual a 1,
+            digitalWrite(ledVermelho, LOW); // Desliga o LED vermelho
+            stLedVermelho = 0; // Variável recebe o valor 0
+      }
+    }
+ 
+    if((results.value == codTecla2) && (stLedVerde == 0)){
+        digitalWrite(ledVerde, HIGH); 
+        stLedVerde = 1; 
+        
+    }else{
+      if((results.value == codTecla2) && (stLedVerde == 1)){ 
+
+            digitalWrite(ledVerde, LOW); 
+            stLedVerde = 0;
+      }
+    }
+ 
+    if((results.value == codTecla3) && (stLedAzul == 0)){ 
+ 
+        digitalWrite(ledAzul, HIGH); 
+        stLedAzul = 1; 
+        
+    }else{
+      if((results.value == codTecla3) && (stLedAzul == 1)){
+            digitalWrite(ledAzul, LOW); 
+            stLedAzul = 0; 
+      }
+    }
+    irrecv.resume(); // Aguarda o recebimento de um novo sinal IR
+  }
+  delay(10); // Intervalo de 10 milisegundos
+}
