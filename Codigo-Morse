@@ -1,0 +1,35 @@
+// Declare as variáveis utilizadas e as portas de cada componente
+int buzzerPin = 9; 
+int botaoPin = 7;
+int ledPin = 6;
+
+// Declare uma variável que irá armazenar a frequência do Tone
+const int toneFreq = 523;
+
+void setup()
+{
+  // Defina os pinos como saída
+  pinMode(buzzerPin, OUTPUT);
+  pinMode(ledPin, OUTPUT);
+  pinMode(botaoPin, INPUT);
+}
+
+void loop()
+{
+  // Faça a leitura do botão se está pressionado ou não
+  int estadoBotao = digitalRead(botaoPin);
+
+  // Se estiver pressionado 
+  if (estadoBotao==LOW)
+  {
+    // Acende o LED e toca o buzzer 
+    digitalWrite(ledPin, HIGH);
+    tone(buzzerPin, toneFreq);
+  } 
+  else // Caso não estiver pressionado
+  {
+    // Desliga o LED e não toca nada 
+    digitalWrite(ledPin, LOW);
+    noTone(buzzerPin);
+  }
+}
