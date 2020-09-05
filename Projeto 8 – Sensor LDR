@@ -1,0 +1,22 @@
+/*===========================================================================
+Código: Flavio Babos – Parceiro Usina Info
+Projeto Sensor LDR - Acionamento de uma LED
+=============================================================================*/
+
+
+void setup () {
+  Serial.begin (9600); // Inicie a comunicação serial a 9600bps
+  pinMode (A0, INPUT); // Declare a porta do sensor LDR como INPUT 
+  pinMode (6, OUTPUT); // Já o LED deve declará-lo como OUTPUT
+}
+
+void loop () {
+  Serial.println (analogRead(A0)); // Printa no monitor Serial o valor lido do LDR
+  delay (100);                     // Fornece uma pausa para a leitura do LDR
+  if (analogRead (A0) < 650) {     // Caso a leitura for menor do que 650
+    digitalWrite ( 6, HIGH);       // Liga-se o LED
+    
+  } else {                         // Se for maior do que 650
+    digitalWrite ( 6, LOW);        // Desliga-se o LED
+  }
+}
