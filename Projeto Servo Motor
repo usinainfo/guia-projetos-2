@@ -1,0 +1,19 @@
+//Carrega a biblioteca Servo
+#include "Servo.h"
+ 
+// Crie um objeto servo
+Servo servo1; 
+ 
+void setup()
+{
+  // Espete o servo no pino analógico 5 do Arduino
+  servo1.attach(5); 
+}
+ 
+void loop()
+{
+  int angle = analogRead(0);           // Faz a leitura do valor do Potenciometro
+  angle = map(angle, 0, 1023, 0, 180); // Mapeia o valor de 0 a 180 graus
+  servo1.write(angle);                 // Repassa o angulo ao ServoWrite
+  delay(15);                           // Delay de 15ms para o Servo alcançar a posição
+}
