@@ -1,3 +1,8 @@
+/*===========================================================================
+Código: Flavio Babos – Parceiro Usina Info
+Projeto de acionamento do Micro Servo Motor 9g SG90 180°
+=============================================================================*/
+
 //Carrega a biblioteca Servo
 #include "Servo.h"
  
