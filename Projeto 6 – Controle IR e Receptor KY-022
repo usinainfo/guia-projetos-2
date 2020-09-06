@@ -1,6 +1,6 @@
 /*===========================================================================
 Código: Flavio Babos – Parceiro Usina Info
-Projeto Controle Infra Vermelho e receptor KY-022
+Projeto Controle Infra Vermelho e Receptor KY-022
 =============================================================================*/
 
 #include <IRremote.h>
