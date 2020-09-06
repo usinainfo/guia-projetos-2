@@ -1,0 +1,66 @@
+// Inclua a biblioteca do Servo Motor
+#include <Servo.h>
+
+// Crie um objeto Servo
+Servo servo;
+
+// Variáveis do ultrassonico para cálculo da distância
+long distance;
+long duration;
+
+// Declare as variáveis utilizadas e as portas de cada componente
+int vermelho = 5;
+int verde = 4;
+int buzzer = 3;
+const int trigPin = 11;
+const int echoPin = 12;
+
+// Declare uma variável que irá armazenar a frequência do Tone
+const int toneFreq = 523;
+
+void setup() {
+  
+  // Determine a porta que o servo está conectado
+  servo.attach(9);
+
+  // Determine cada variável/componente como saída ou entrada
+  pinMode(vermelho, OUTPUT);
+  pinMode(buzzer, OUTPUT);
+  pinMode(verde, OUTPUT);
+  pinMode(buzzer, OUTPUT);
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+}
+
+void loop() {
+
+  // Funções criadas para cálculo da distância e para executar os comandos
+  ultrassonico();
+  executar();
+}
+
+void executar() {
+  if(distance < 30) {     // Se a distância for menor que 30 cm
+    servo.write(90);      // O servo gira 90°
+    digitalWrite(vermelho, HIGH);  // O LED vermelho acende
+    digitalWrite(verde, LOW);      // O LED verde fica apagado
+    tone(buzzer, toneFreq);        // O Buzzer apita no tone especificado
+  }
+  else {                 // Se a distância for maior que 30 cm
+    servo.write(0);      // O servo volta na posição 0°
+    digitalWrite(vermelho, LOW);   // O LED vermelho se apaga
+    digitalWrite(verde, HIGH);     // O LED verde acende
+    noTone(buzzer);                // O Buzzer não faz nada
+  }
+}
+
+void ultrassonico(){      // Função utilizada para cálculo da distância
+  
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration = pulseIn(echoPin, HIGH);
+  distance = duration*0.034/2;
+  }
