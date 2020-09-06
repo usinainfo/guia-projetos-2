@@ -1,3 +1,8 @@
+/*===========================================================================
+Código: Flavio Babos – Parceiro Usina Info
+Projeto Final com uso de 5 sensores do KIT: Ultrassônico, Servo, 2 LED's e Buzzer 
+=============================================================================*/
+
 // Inclua a biblioteca do Servo Motor
 #include <Servo.h>
 
